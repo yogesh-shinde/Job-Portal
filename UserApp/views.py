@@ -7,6 +7,7 @@ from UserApp.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from .decorators import user_login_required
+
 # Create your views here.
 @user_login_required
 def user_dashboard(request):
