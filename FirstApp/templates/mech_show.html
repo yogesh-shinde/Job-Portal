@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MECH Show</title>
+    <link rel="stylesheet" href="{% static "css/show.css"%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+  </head>
+  <body>
+    <div class="tbl">
+      <h2 align="center">Mechanical Jobs</h2>
+      <table align="center" border="1">
+        <thead>
+          <th>Company Name</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Designation</th>
+          <th>Experience</th>
+          <th>Package</th>
+          <th>Position</th>
+          <th>Date Form</th>
+          <th>Date To</th>
+          <th>Location</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </thead>
+        {% for x in obj%}
+        <tr>
+          <td>{{x.job_company}}</td>
+          <td>{{x.job_title}}</td>
+          <td>{{x.job_description}}</td>
+          <td>{{x.job_designation}}</td>
+          <td>{{x.job_experience}}</td>
+          <td>{{x.job_package}}</td>
+          <td>{{x.job_position}}</td>
+          <td>{{x.job_date_from}}</td>
+          <td>{{x.job_date_to}}</td>
+          <td>{{x.job_location}}</td>
+          <td>
+            <button class="btn btn-warning" type="submit">
+              <a href="/mech_update/{{x.id}}/">update</a>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-warning" type="submit">
+              <a href="/mech_delete/{{x.id}}/">delete</a>
+            </button>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+      <div align=center class="">
+        <button class="btn btn-success" type="submit"><a href="/mech_add/">add</a></button>
+        <button class="btn btn-warning" type="submit"><a href="/logout/">logout</a></button>
+        <button class="btn btn-light" type="submit"><a href="/dashboard/">Back</a></button></button>
+      </div>
+      <br>
+  </body>
+</html>

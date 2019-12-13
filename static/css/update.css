@@ -1,0 +1,22 @@
+body {
+  background: url('https://images.pexels.com/photos/327540/pexels-photo-327540.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.add-form {
+  width: 600px;
+  background: linear-gradient(120deg, #55efc4, #00cec9, #74b9ff, #6c5ce7);
+  height: 950px;
+  padding: 0.5px 50px;
+  border-radius: 10px;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.add-form h1 {
+  text-align: center;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  color: #e84118;
+}

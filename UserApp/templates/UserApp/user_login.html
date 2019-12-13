@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static "css/login.css"%}">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    {% load crispy_forms_tags %}
+  </head>
+  <body>
+    <div class="login-form">
+      <form action="/userapp/user_login/" method="POST">
+        {% csrf_token %}
+
+        <h1>User Login Form</h1>
+        <div style="color: red;">
+          {% if messages %} {% for msg in messages %} {{msg}} <br />
+          {% endfor %} {% endif %}
+        </div>
+        User Name : <br />
+        <input type="text" name="txtuname" id="" />
+        <br />
+        Password : <br />
+        <input type="password" name="txtpass" id="" />
+        <br /><br />
+        <button class="btn btn-success btn-lg" type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>
