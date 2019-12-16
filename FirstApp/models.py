@@ -1,5 +1,5 @@
 from django.db import models
-
+from UserApp.models import User
 
 # Create your models here.
 class Address(models.Model):
@@ -20,6 +20,7 @@ class ITJobs(models.Model):
     job_date_from = models.DateField()
     job_date_to = models.DateField()
     job_location = models.ForeignKey(Address, on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.job_company
@@ -36,7 +37,8 @@ class MECHJobs(models.Model):
     job_date_from = models.DateField()
     job_date_to = models.DateField()
     job_location = models.ForeignKey(Address, on_delete=models.CASCADE)
-
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.job_company
 
@@ -52,6 +54,7 @@ class CIVILJobs(models.Model):
     job_date_from = models.DateField()
     job_date_to = models.DateField()
     job_location = models.ForeignKey(Address, on_delete=models.CASCADE)
-
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.job_company
