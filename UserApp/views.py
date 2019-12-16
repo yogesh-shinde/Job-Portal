@@ -19,37 +19,6 @@ def it_show(request):
     obj = ITJobs.objects.all()
     return render(request, 'UserApp/it_show.html', {'obj': obj})
 
-# Add IT Record
-@user_login_required
-def it_add(request):
-    if (request.method == 'POST'):
-        itform = ITJobsForm(request.POST)
-        if (itform.is_valid()):
-            itform.save()
-        return redirect('/userapp/it_show/')
-
-    itform = ITJobsForm()
-    return render(request, 'UserApp/it_add.html', {'itform': itform})
-
-# Delete IT Record
-@user_login_required
-def it_delete(request, id):
-    obj = ITJobs.objects.get(pk=id)
-    obj.delete()
-    return redirect('/userapp/it_show/')
-
-# Update IT Record
-@user_login_required
-def it_update(request, id):
-    obj = ITJobs.objects.get(pk=id)
-    itform = ITJobsForm(instance=obj)
-    if (request.method == 'POST'):
-        itform = ITJobsForm(request.POST, instance=obj)
-        if (itform.is_valid()):
-            itform.save()
-        return redirect('/userapp/it_show/')
-    itform = ITJobsForm(instance=obj)
-    return render(request, 'UserApp/it_update.html', {'itform': itform, 'obj': obj})
 
 # Show Mechanical Record
 @user_login_required
@@ -57,36 +26,6 @@ def mech_show(request):
     obj=MECHJobs.objects.all()
     return render(request,'UserApp/mech_show.html',{'obj':obj})
 
-# Add Mechanical Record
-@user_login_required
-def mech_add(request):
-    if(request.method == 'POST'):
-        mechform=MECHJobsForm(request.POST)
-        if(mechform.is_valid()):
-            mechform.save()
-        return redirect('/userapp/mech_show/')
-    mechform=MECHJobsForm()
-    return render(request,'UserApp/mech_add.html',{'mechform':mechform})
-
-# Delete Mechanical Record
-@user_login_required
-def mech_delete(request,id):
-    obj=MECHJobs.objects.get(pk=id)
-    obj.delete()
-    return redirect('/userapp/mech_show/')
-
-# Update Mechanical Record
-@user_login_required
-def mech_update(request,id):
-    obj=MECHJobs.objects.get(pk=id)
-    mechform=MECHJobsForm(instance=obj)
-    if(request.method == 'POST'):
-        mechform=MECHJobsForm(request.POST,instance=obj)
-        if(mechform.is_valid()):
-            mechform.save()
-        return redirect('/userapp/mech_show/')
-    mechform=MECHJobsForm(instance=obj)
-    return render(request,'UserApp/mech_update.html',{'mechform':mechform,'obj':obj})
 
 # Show Civil Record
 @user_login_required
@@ -94,36 +33,6 @@ def civil_show(request):
     obj=CIVILJobs.objects.all()
     return render(request,'UserApp/civil_show.html',{'obj':obj})
 
-#Add Civil Record
-@user_login_required
-def civil_add(request):
-    if(request.method == 'POST'):
-        civilform=CIVILJobsForm(request.POST)
-        if(civilform.is_valid()):
-            civilform.save()
-        return redirect('/userapp/civil_show/')
-    civilform=CIVILJobsForm()
-    return render(request,'UserApp/civil_add.html',{'civilform':civilform})
-
-#Delete Civil Record
-@user_login_required
-def civil_delete(request,id):
-    obj=CIVILJobs.objects.get(pk=id)
-    obj.delete()
-    return redirect('/userapp/civil_show/')
-
-#Update Civil Record
-@user_login_required
-def civil_update(request,id):
-    obj=CIVILJobs.objects.get(pk=id)
-    civilform=CIVILJobsForm(instance=obj)
-    if(request.method == 'POST'):
-        civilform=CIVILJobsForm(request.POST,instance=obj)
-        if(civilform.is_valid()):
-            civilform.save()
-        return redirect('/userapp/civil_show/')
-    civilform=CIVILJobsForm(instance=obj)
-    return render(request,'UserApp/civil_update.html',{'obj':obj,'civilform':civilform})
     
 #User Login
 def user_login(request):
