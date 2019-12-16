@@ -6,7 +6,7 @@ body {
 .add-form {
   width: 600px;
   background: linear-gradient(120deg, #55efc4, #00cec9, #74b9ff, #6c5ce7);
-  height: 950px;
+  /* height: 1000px; */
   padding: 0.5px 50px;
   border-radius: 10px;
   position: absolute;

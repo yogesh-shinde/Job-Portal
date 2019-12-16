@@ -17,7 +17,7 @@
   </head>
   <body>
     <form class="add-form" action="/it_add/" method="POST">
-      <center> <h1>Login Form</h1> </center>
+      <center><h1>Add IT Job</h1></center>
       {% csrf_token %} {{itform | crispy}}
       <br />
       <button class="btn btn-primary" type="submit">Add</button>
