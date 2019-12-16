@@ -24,7 +24,7 @@
       enctype="multipart/form-data"
     >
       <h1>User Registeration Form</h1>
-      {% csrf_token %} {{userform.as_p}}
+      {% csrf_token %} {{userform | crispy }}
       <button class="btn btn-success btn-lg" type="submit">register</button>
     </form>
   </body>
