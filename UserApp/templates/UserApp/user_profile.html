@@ -5,24 +5,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Update</title>
-    <link rel="stylesheet" href="{% static "css/add.css" %}">
+    <title>User Profile</title>
+
+    <link rel="stylesheet" href="{% static "css/add.css"%}">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+
     {% load crispy_forms_tags %}
   </head>
   <body>
-    <form class="add-form" action="/it_update/{{obj.id}}/" method="POST">
-      <caption>
-        <h1>Update IT Job</h1>
-      </caption>
-      {% csrf_token %} {{itform | crispy}}
-      <br />
-      <button class="btn btn-primary" type="submit">Update</button>
-    </form>
+    <div class=".add-form">
+      <form
+        action="/userapp/user_profile/"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %} {{ userform | crispy}}
+        <br /><br />
+        <button class="btn btn-outline-primary" type="submit">Save</button>
+      </form>
+    </div>
   </body>
 </html>
