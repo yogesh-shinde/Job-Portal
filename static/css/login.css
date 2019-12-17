@@ -6,7 +6,7 @@ body {
 .login-form {
   width: 400px;
   background: linear-gradient(120deg, #55efc4, #00cec9, #74b9ff, #6c5ce7);
-  height: 500px;
+  /* height: 500px; */
   padding: 60px 40px;
   border-radius: 10px;
   position: absolute;

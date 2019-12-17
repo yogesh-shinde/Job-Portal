@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'LoginApp.apps.LoginappConfig',
     'crispy_forms',
     'UserApp.apps.UserappConfig',
+    'phone_field',
 ]
 
 MIDDLEWARE = [
