@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from FirstApp.models import Address, ITJobs, MECHJobs, CIVILJobs
 from FirstApp.forms import AddresForm, ITJobsForm, MECHJobsForm, CIVILJobsForm
 from django.contrib.auth.decorators import login_required
-from UserApp.forms import UserForm
+from UserApp.forms import UserForm, UserProfile
 from UserApp.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
@@ -37,7 +37,7 @@ def civil_show(request):
     return render(request, 'UserApp/civil_show.html', {'obj': obj})
 
 
-#User Login
+# User Login
 def user_login(request):
     if (request.method == 'POST'):
         username = request.POST['txtuname']
@@ -47,7 +47,8 @@ def user_login(request):
             print(user)
             if (user is not None):
                 request.session['user'] = user.username
-                print("session set ", request.session['user'])
+                request.session['user_id'] = user.id
+                # print("session set id : ", request.session['user'])
                 return redirect('/userapp/user_dashboard/')
             else:
                 messages.error(request,
@@ -59,7 +60,7 @@ def user_login(request):
     return render(request, 'UserApp/user_login.html')
 
 
-#User Registration
+# User Registration
 def user_register(request):
     if (request.method == 'POST'):
         userform = UserForm(request.POST, request.FILES)
@@ -90,10 +91,12 @@ def civil_apply(request):
 
 
 def user_profile(request):
+    session_id = request.session.get('user_id')
+    obj = User.objects.get(pk=session_id)
     if request.method == 'POST':
-        userform = UserForm(request.POST, request.FILES)
+        userform = UserProfile(request.POST, request.FILES, instance=obj)
         if (userform.is_valid()):
             userform.save()
         redirect('/userapp/user_dashboard/')
-    userform = UserForm()
+    userform = UserProfile(instance=obj)
     return render(request, 'UserApp/user_profile.html', {'userform': userform})
