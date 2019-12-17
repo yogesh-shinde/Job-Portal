@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>User Profile</title>
 
-    <link rel="stylesheet" href="{% static "css/add.css"%}">
+    <link rel="stylesheet" href="{% static "css/profile.css"%}">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -18,15 +18,16 @@
     {% load crispy_forms_tags %}
   </head>
   <body>
-    <div class=".add-form">
+    <div class="add-form">
       <form
         action="/userapp/user_profile/"
         method="POST"
         enctype="multipart/form-data"
       >
+        <h1>User Profile</h1>
         {% csrf_token %} {{ userform | crispy}}
-        <br /><br />
-        <button class="btn btn-outline-primary" type="submit">Save</button>
+        <br />
+        <button class="btn btn-dark" type="submit">Save</button>
       </form>
     </div>
   </body>
