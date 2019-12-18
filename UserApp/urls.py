@@ -5,9 +5,9 @@ urlpatterns = [
     path('user_login/', views.user_login),
     path('user_register/', views.user_register),
     path('user_dashboard/', views.user_dashboard),
-    path('it_apply/', views.it_apply),
-    path('mech_apply/', views.mech_apply),
-    path('civil_apply/', views.civil_apply),
+    path('it_apply/<int:id>/', views.it_apply),
+    path('mech_apply/<int:id>/', views.mech_apply),
+    path('civil_apply/<int:id>/', views.civil_apply),
     path('user_profile/', views.user_profile),
 
     # IT URLS
