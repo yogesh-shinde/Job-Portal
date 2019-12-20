@@ -2,6 +2,7 @@ from django.urls import path
 from FirstApp import views
 urlpatterns = [
     path('dashboard/', views.dashboard),
+    path('resume_it/<int:id>/', views.resume_it),
     # IT URLS
     path('it_show/', views.it_show),
     path('it_add/', views.it_add),
@@ -15,6 +16,6 @@ urlpatterns = [
     # CIVIL URLS
     path('civil_show/', views.civil_show),
     path('civil_add/', views.civil_add),
-    path('civil_update/<int:id>/',views.civil_update),
-    path('civil_delete/<int:id>/',views.civil_delete),
+    path('civil_update/<int:id>/', views.civil_update),
+    path('civil_delete/<int:id>/', views.civil_delete),
 ]

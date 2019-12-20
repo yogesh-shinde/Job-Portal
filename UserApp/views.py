@@ -121,6 +121,6 @@ def user_profile(request):
         userform = UserProfile(request.POST, request.FILES, instance=obj)
         if (userform.is_valid()):
             userform.save()
-        redirect('/userapp/user_dashboard/')
+            return redirect('/userapp/user_dashboard/')
     userform = UserProfile(instance=obj)
     return render(request, 'UserApp/user_profile.html', {'userform': userform})

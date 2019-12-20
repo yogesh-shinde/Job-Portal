@@ -119,3 +119,9 @@ def civil_update(request,id):
         return redirect('/civil_show/')
     civilform=CIVILJobsForm(instance=obj)
     return render(request,'civil_update.html',{'obj':obj,'civilform':civilform})
+
+# Show applied resume by user
+def resume_it(request,id):
+    itjobs=ITJobs.objects.get(pk=id)
+    users=itjobs.user.all()
+    return render(request,'apply_resume.html',{'user_resume':users})

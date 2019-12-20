@@ -31,6 +31,7 @@
           <th>Location</th>
           <th>Update</th>
           <th>Delete</th>
+          <th>Resume</th>
         </thead>
         {% for x in obj%}
         <tr>
@@ -45,13 +46,18 @@
           <td>{{x.job_date_to}}</td>
           <td>{{x.job_location}}</td>
           <td>
-            <button class="btn btn-warning" type="submit">
+            <button class="btn btn-light" type="submit">
               <a href="/it_update/{{x.id}}/">update</a>
             </button>
           </td>
           <td>
-            <button class="btn btn-warning" type="submit">
+            <button class="btn btn-light" type="submit">
               <a href="/it_delete/{{x.id}}/">delete</a>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-light" type="submit">
+              <a href="/resume_it/{{x.id}}/">view</a>
             </button>
           </td>
         </tr>
@@ -60,9 +66,9 @@
 
       <br />
       <div align="center" class="">
-        <button class="btn btn-success" type="submit"><a href="/it_add/">add</a></button>
-        <button class="btn btn-warning" type="submit"><a href="/logout/">logout</a></button>
-        <button class="btn btn-light" type="submit"><a href="/dashboard/">Back</a></button></button>
+        <button class="btn btn-outline-secondary" type="submit"><a href="/it_add/">add</a></button>
+        <button class="btn btn-outline-warning" type="submit"><a href="/logout/">logout</a></button>
+        <button class="btn btn-outline-dark" type="submit"><a href="/dashboard/">Back</a></button></button>
       </div>
       <br />
     </div>
