@@ -108,7 +108,7 @@ def civil_apply(request,*args,**kwargs):
         user_id=request.session.get('user_id')
         uobj=User.objects.get(pk=user_id)
         obj.user.add(uobj)
-        print(obj.user.all())
+        # print(obj.user.all())
         obj.save()
         return redirect('/userapp/civil_show/')
     return redirect('/userapp/civil_show/')
